@@ -16,40 +16,28 @@ function sidebar() {
         <Image src="https://rb.gy/ogau5a" width={30} height={30} />
       </div>
       <div className="space-y-2.5 mt-4 mb-2.5 xl:ml-24">
-        <button>
-          <SidebarLink text="Home" Icon={AiFillHome} active />
-        </button>
-        <button>
-          {" "}
-          <SidebarLink text="Profile" Icon={HiOutlineUser} />
-        </button>
-        <button>
-          <SidebarLink text="Settings" Icon={FiSettings} />
-        </button>
-        <button>
-          <SidebarLink text="Notification" Icon={AiOutlineInbox} />
-        </button>
+        <SidebarLink text="Home" Icon={AiFillHome} active />
+
+        <SidebarLink text="Profile" Icon={HiOutlineUser} />
+
+        <SidebarLink text="Settings" Icon={FiSettings} />
+
+        <SidebarLink text="Notification" Icon={AiOutlineInbox} />
+      </div>
+      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation mt-80 mb-100 xl:ml-24">
+        <img
+          src={session.user.image}
+          alt=""
+          className="h-10 w-10 rounded-full xl:mr-2.5"
+        />
+        <div className="hidden xl:inline leading-5">
+          <h4 className="font-bold">{session.user.name}</h4>
+          <p className="text-[#6e767d]">@{session.user.tag}</p>
+        </div>
         <button onClick={signOut}>
-          <SidebarLink text="Logout" Icon={RiLogoutCircleRLine} />
+          <RiLogoutCircleRLine className="h-10 hidden xl:inline ml-10 font-bold cursor-pointer" />
         </button>
       </div>
-      <button className="hidden xl:inline ml-auto  text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md ">
-        <div
-          className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
-          onClick={signOut}
-        >
-          <img
-            src={session.user.image}
-            alt=""
-            className="h-10 w-10 rounded-full xl:mr-2.5"
-          />
-          <div className="hidden xl:inline leading-5">
-            <h4 className="font-bold">{session.user.name}</h4>
-            <p className="text-[#6e767d]">@{session.user.tag}</p>
-          </div>
-          <BsThreeDots className="h-5 hidden xl:inline ml-10" />
-        </div>
-      </button>
     </div>
   );
 }
