@@ -24,7 +24,7 @@ function sidebar() {
 
         <SidebarLink text="Notification" Icon={AiOutlineInbox} />
       </div>
-      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation mt-80 mb-100 xl:ml-24">
+      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation ml:mt-40 mb-100  xl:mt:80 mb-100 ml-24 sm: mt:20 mb-100">
         <img
           src={session.user.image}
           alt=""
