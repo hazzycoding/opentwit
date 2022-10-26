@@ -1,14 +1,11 @@
 import Image from "next/image";
 import SidebarLink from "./SidebarLink";
 import { AiFillHome } from "react-icons/ai";
-import { FaHashtag } from "react-icons/fa";
-import { BsBell } from "react-icons/bs";
 import { AiOutlineInbox } from "react-icons/ai";
-import { BsBookmarkHeart } from "react-icons/bs";
-import { BsClipboard } from "react-icons/bs";
 import { HiOutlineUser } from "react-icons/hi";
-import { TbDotsCircleHorizontal } from "react-icons/tb";
+import { FiSettings } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import { signOut, useSession } from "next-auth/react";
 
 function sidebar() {
@@ -19,28 +16,32 @@ function sidebar() {
         <Image src="https://rb.gy/ogau5a" width={30} height={30} />
       </div>
       <div className="space-y-2.5 mt-4 mb-2.5 xl:ml-24">
-        <SidebarLink text="Home" Icon={AiFillHome} active />
-        <SidebarLink text="Explore" Icon={FaHashtag} />
-        <SidebarLink text="Notifications" Icon={BsBell} />
-        <SidebarLink text="Messages" Icon={AiOutlineInbox} />
-        <SidebarLink text="Bookmarks" Icon={BsBookmarkHeart} />
-        <SidebarLink text="Lists" Icon={BsClipboard} />
-        <SidebarLink text="Profile" Icon={HiOutlineUser} />
-        <SidebarLink text="More" Icon={TbDotsCircleHorizontal} />
+        <button>
+          <SidebarLink text="Home" Icon={AiFillHome} active />
+        </button>
+        <button>
+          {" "}
+          <SidebarLink text="Profile" Icon={HiOutlineUser} />
+        </button>
+        <button>
+          <SidebarLink text="Settings" Icon={FiSettings} />
+        </button>
+        <button>
+          <SidebarLink text="Notification" Icon={AiOutlineInbox} />
+        </button>
+        <button onClick={signOut}>
+          <SidebarLink text="Logout" Icon={RiLogoutCircleRLine} />
+        </button>
       </div>
-      <button
-        className="xl:inline ml-auto  rounded-full w-56 h-[52px] 
-    text-lg font-bold shadow-md  text-white"
-      >
+      <button className="hidden xl:inline ml-auto  text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md ">
         <div
-          className="text-[#d9d9d9] flex items-center justify-center
-    hoverAnimation xl:ml-auto xl:mr-2.5 mt-auto"
+          className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
           onClick={signOut}
         >
           <img
             src={session.user.image}
             alt=""
-            className="w-10 h-10 rounded-full xl:mr-2.5"
+            className="h-10 w-10 rounded-full xl:mr-2.5"
           />
           <div className="hidden xl:inline leading-5">
             <h4 className="font-bold">{session.user.name}</h4>
