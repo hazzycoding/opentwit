@@ -1,10 +1,11 @@
 import Image from "next/image";
 import SidebarLink from "./SidebarLink";
+import Profile from "../components/Profile";
 import { AiFillHome } from "react-icons/ai";
 import { AiOutlineInbox } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
-import { BsThreeDots } from "react-icons/bs";
+
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { signOut, useSession } from "next-auth/react";
 
@@ -24,12 +25,14 @@ function sidebar() {
 
         <SidebarLink text="Notification" Icon={AiOutlineInbox} />
       </div>
-      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation ml:mt-40 mb-100  xl:mt:80 mb-100 ml-24 sm: mt:20 mb-100">
-        <img
-          src={session.user.image}
-          alt=""
-          className="h-10 w-10 rounded-full xl:mr-2.5"
-        />
+      <div className="text-[#d9d9d9] flex items-center justify-center hoverAnimation ml:mt-60 xl:ml-24 xl:mt:80 mb-100  sm: mt:20 mb-100 sm:ml-0">
+        <button onClick={signOut}>
+          <img
+            src={session.user.image}
+            alt=""
+            className="h-10 w-10 rounded-full xl:mr-2.5"
+          />
+        </button>
         <div className="hidden xl:inline leading-5">
           <h4 className="font-bold">{session.user.name}</h4>
           <p className="text-[#6e767d]">@{session.user.tag}</p>

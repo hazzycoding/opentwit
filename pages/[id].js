@@ -55,7 +55,7 @@ export default function PostPage(trendingResults, followResults, providers) {
       <Head>
         <title>
           {" "}
-          {post?.username} on Twitter: "{post?.text}"
+          {post?.username} on opentwit: "{post?.text}"
         </title>
         <link rel="icon" href="twitter" />
       </Head>
