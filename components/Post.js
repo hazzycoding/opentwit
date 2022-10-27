@@ -198,9 +198,6 @@ const Post = ({ id, post, postPage }) => {
           <div className="icon group">
             <BiShareAlt className="h-5 group-hover:text-[#1d9bf0]" />
           </div>
-          <div className="icon group">
-            <BsFillBarChartFill className="h-5 group-hover:text-[#1d9bf0]" />
-          </div>
         </div>
       </div>
     </div>
